@@ -1,7 +1,6 @@
 <template>
   <div>
     <div>{{ count }}</div>
-    <button @click="shuffle">Shuffle</button>
     <button @click="addCount(1)">Add 1</button>
     <button @click="addCount(50)">Add 50</button>
     <button @click="removeCount(1)">Remove 1</button>
