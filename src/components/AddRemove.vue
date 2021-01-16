@@ -18,12 +18,8 @@ import { defineComponent } from "vue";
 import { mapActions, mapState } from "vuex";
 
 export default defineComponent({
-  computed: {
-    ...mapState(["count"]),
-  },
-  methods: {
-    ...mapActions(["addCount", "removeCount"]),
-  },
+  computed: mapState(["count"]),
+  methods: mapActions(["addCount", "removeCount"]),
 });
 </script>
 
