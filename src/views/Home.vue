@@ -1,6 +1,6 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
+  <div class="home flex flex-col items-center">
+    <img alt="Vue logo" src="../assets/logo.png" class="w-40"/>
     <AddRemove />
     <EvenOdd />
     <List />

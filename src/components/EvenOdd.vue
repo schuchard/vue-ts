@@ -1,6 +1,11 @@
 <template>
-  <div>
-    <button @click="clicked">add</button>
+  <div class="m-2">
+    <button
+      @click="clicked"
+      class="flex px-4 py-1 items-center justify-center rounded-md bg-black text-white"
+    >
+      add
+    </button>
     <div v-for="n of sets" :key="n" class="flex">
       even
       <div v-for="numbers of even(n)" :key="numbers">{{ numbers }}</div>
