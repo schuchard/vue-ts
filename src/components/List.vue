@@ -1,10 +1,10 @@
 <template>
   <div>
-    <button @click="shuffle">Shuffle</button>
-    <button @click="add(1)">Add 1</button>
-    <button @click="add(50)">Add 50</button>
-    <button @click="remove(1)">Remove 1</button>
-    <button @click="remove(50)">Remove 50</button>
+    <button @click="shuffle" class="btn-blue">Shuffle</button>
+    <button @click="add(1)" class="btn-blue">Add 1</button>
+    <button @click="add(50)" class="btn-blue">Add 50</button>
+    <button @click="remove(1)" class="btn-blue">Remove 1</button>
+    <button @click="remove(50)" class="btn-blue">Remove 50</button>
     <transition-group name="list-complete">
       <span v-for="item in items" :key="item" class="list-complete-item">{{
         item
@@ -60,5 +60,11 @@ export default defineComponent({
 
 .list-complete-leave-active {
   position: absolute;
+}
+
+@layer components {
+  .btn-blue {
+    @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75;
+  }
 }
 </style>
