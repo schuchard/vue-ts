@@ -6,11 +6,15 @@
     >
       add
     </button>
-    <div v-for="n of sets" :key="n" class="flex">
+    <div v-for="numbers in sets" :key="numbers" class="flex">
       even
-      <div v-for="numbers of even(n)" :key="numbers">{{ numbers }}</div>
+      <div v-for="evenNumbers in even(numbers)" :key="evenNumbers">
+        {{ evenNumbers }}
+      </div>
       odd
-      <div v-for="numbers of odd(n)" :key="numbers">{{ numbers }}</div>
+      <div v-for="oddNumbers in odd(numbers)" :key="oddNumbers">
+        {{ oddNumbers }}
+      </div>
     </div>
   </div>
 </template>
