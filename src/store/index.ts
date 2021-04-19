@@ -1,12 +1,10 @@
 import { InjectionKey } from "vue";
 import { createStore, Store, useStore as baseUseStore } from "vuex";
+import VuexORM from "@vuex-orm/core";
+import { database } from "./vuex-orm";
 
 export interface AppState {
   count: number;
-}
-
-export const enum Actions {
-  addCount,
 }
 
 export default createStore<AppState>({
@@ -32,6 +30,7 @@ export default createStore<AppState>({
       commit("removeCount", count);
     },
   },
+  plugins: [VuexORM.install(database)],
 });
 
 const key: InjectionKey<Store<AppState>> = Symbol();
