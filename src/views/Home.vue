@@ -4,6 +4,10 @@
     <AddRemove />
     <EvenOdd />
     <List />
+    <button @click="toggleLazyComponent" class="btn-blue m-1">
+      Toggle Lazy Component
+    </button>
+    <LazyComponent v-if="loadLazyComponent" />
   </div>
 </template>
 
@@ -11,13 +15,26 @@
 import EvenOdd from "@/components/EvenOdd.vue";
 import List from "@/components/List.vue"; // @ is an alias to /src
 import AddRemove from "@/components/AddRemove.vue";
-import { defineComponent } from "vue";
+import { defineAsyncComponent, defineComponent } from "vue";
 
 export default defineComponent({
+  data() {
+    return {
+      loadLazyComponent: false,
+    };
+  },
   components: {
     List,
     EvenOdd,
     AddRemove,
+    LazyComponent: defineAsyncComponent(
+      () => import("@/components/LazyComponent.vue")
+    ),
+  },
+  methods: {
+    toggleLazyComponent() {
+      this.loadLazyComponent = !this.loadLazyComponent;
+    },
   },
 });
 </script>
